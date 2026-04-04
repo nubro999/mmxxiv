@@ -14,11 +14,6 @@
 @layer base {
   body {
     font-family: var(--font-sans), sans-serif;
-    background-image: url('/bg-pattern.jpg');
-    background-size: 600px;
-    background-repeat: repeat;
-    background-blend-mode: soft-light;
-    background-position: center top;
   }
 }
 
