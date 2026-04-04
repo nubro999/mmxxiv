@@ -18,7 +18,7 @@ export default function BentoStats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white p-10 text-center"
+              className="border border-navy/10 bg-white p-10 text-center"
             >
               <span className="mb-2 block font-[family-name:var(--font-dm-serif)] text-5xl font-black text-teal">
                 {stat.value}

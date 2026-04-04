@@ -168,7 +168,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <div className="mb-6 inline-flex items-center rounded-full bg-teal/10 px-3 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-teal">
+          <div className="mb-6 inline-flex items-center border border-teal/20 px-3 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-teal">
             Precision Liquidity Layer
           </div>
 
@@ -188,14 +188,14 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
-              className="rounded-md bg-gold px-8 py-4 text-sm font-black uppercase tracking-widest text-navy transition-all hover:brightness-105"
+              className="border border-gold bg-gold px-8 py-4 text-sm font-black uppercase tracking-widest text-navy transition-all hover:brightness-105"
             >
               Start Assessment
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.95 }}
-              className="rounded-md bg-navy/5 px-8 py-4 text-sm font-bold uppercase tracking-widest text-navy transition-all"
+              className="border border-navy/20 px-8 py-4 text-sm font-bold uppercase tracking-widest text-navy transition-all hover:bg-navy/5"
             >
               View Ecosystem
             </motion.button>
@@ -224,7 +224,7 @@ export default function Hero() {
 
         {/* Right Visual */}
         <div className="col-span-12 flex items-center justify-center md:col-span-5">
-          <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-teal/5 blur-[100px]" />
+          <div className="absolute -right-24 -top-24 h-96 w-96 bg-teal/5 blur-[100px]" />
           <motion.div
             className="relative w-full max-w-md"
             initial={{ opacity: 0, scale: 0.9 }}

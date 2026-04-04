@@ -153,8 +153,8 @@ export default function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`relative border bg-white/5 p-6 backdrop-blur-sm ${
-                i === 3 ? "border-gold/40" : "border-white/10"
+              className={`relative border p-6 ${
+                i === 3 ? "border-gold/50 bg-white/5" : "border-white/20"
               }`}
             >
               <div className="mb-3">{item.icon}</div>
@@ -191,7 +191,7 @@ export default function HowWeWork() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="border border-white/10 bg-white/5 p-8"
+            className="border border-white/20 p-8"
           >
             <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-gold">
               Primary Listing Management
@@ -211,7 +211,7 @@ export default function HowWeWork() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="border border-white/10 bg-white/5 p-8"
+            className="border border-white/20 p-8"
           >
             <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-gold">
               Post-Listing Management

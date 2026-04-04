@@ -109,7 +109,7 @@ export default function KeyFocus() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="border border-white/10 bg-white/5 p-10 backdrop-blur-sm"
+              className="border border-white/20 p-10"
             >
               <div className="mb-6">{focus.icon}</div>
               <span className="mb-2 block font-[family-name:var(--font-dm-serif)] text-5xl text-gold/30">

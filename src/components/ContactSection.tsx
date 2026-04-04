@@ -88,7 +88,7 @@ export default function ContactSection() {
             </p>
             <div className="space-y-6 pt-8">
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal/10">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-teal/20">
                   <svg className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -100,7 +100,7 @@ export default function ContactSection() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal/10">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-teal/20">
                   <svg className="h-5 w-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                   </svg>
@@ -119,28 +119,28 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="rounded-xl border border-navy/5 bg-white/40 p-10 backdrop-blur-sm"
+            className="border border-navy/10 bg-white/40 p-10 backdrop-blur-sm"
           >
             <form className="space-y-6">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div className="space-y-2">
                   <label className="block px-1 text-[0.6875rem] font-black uppercase tracking-widest text-navy/60" htmlFor="name">Identifier</label>
-                  <input className="w-full rounded-md border-0 bg-white px-4 py-4 text-sm text-navy ring-1 ring-navy/10 transition-all focus:ring-2 focus:ring-teal" id="name" placeholder="Full Name" type="text" />
+                  <input className="w-full border border-navy/10 bg-white px-4 py-4 text-sm text-navy transition-all focus:border-teal focus:outline-none" id="name" placeholder="Full Name" type="text" />
                 </div>
                 <div className="space-y-2">
                   <label className="block px-1 text-[0.6875rem] font-black uppercase tracking-widest text-navy/60" htmlFor="email">Point of Contact</label>
-                  <input className="w-full rounded-md border-0 bg-white px-4 py-4 text-sm text-navy ring-1 ring-navy/10 transition-all focus:ring-2 focus:ring-teal" id="email" placeholder="Email Address" type="email" />
+                  <input className="w-full border border-navy/10 bg-white px-4 py-4 text-sm text-navy transition-all focus:border-teal focus:outline-none" id="email" placeholder="Email Address" type="email" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="block px-1 text-[0.6875rem] font-black uppercase tracking-widest text-navy/60" htmlFor="message">Manifesto</label>
-                <textarea className="min-h-[150px] w-full rounded-md border-0 bg-white px-4 py-4 text-sm text-navy ring-1 ring-navy/10 transition-all focus:ring-2 focus:ring-teal" id="message" placeholder="How can we assist your asset's ecosystem?" />
+                <textarea className="min-h-[150px] w-full border border-navy/10 bg-white px-4 py-4 text-sm text-navy transition-all focus:border-teal focus:outline-none" id="message" placeholder="How can we assist your asset's ecosystem?" />
               </div>
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
-                className="mt-4 w-full rounded-md bg-navy py-5 text-sm font-black uppercase tracking-[0.2em] text-gold shadow-lg shadow-navy/5 transition-all hover:bg-navy/90"
+                className="mt-4 w-full border border-navy bg-navy py-5 text-sm font-black uppercase tracking-[0.2em] text-gold transition-all hover:bg-navy/90"
               >
                 Transmit Signal
               </motion.button>

@@ -202,7 +202,7 @@ export default function WhatWeDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group border border-navy/5 bg-white p-8 transition-colors duration-300 hover:bg-teal [&:hover_svg]:brightness-0 [&:hover_svg]:invert"
+              className="group border border-navy/10 bg-white p-8 transition-colors duration-300 hover:border-teal hover:bg-teal [&:hover_svg]:brightness-0 [&:hover_svg]:invert"
             >
               <div className="mb-6 transition-all">
                 {service.icon}
