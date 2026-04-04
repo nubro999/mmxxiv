@@ -62,7 +62,7 @@ function SignalPulse() {
 
 export default function ContactSection() {
   return (
-    <section className="relative bg-sage py-24 text-navy">
+    <section id="contact" className="relative bg-sage py-24 text-navy">
       <SignalPulse />
       <div className="relative mx-auto max-w-7xl px-8">
         <div className="grid grid-cols-1 items-start gap-20 lg:grid-cols-2">
