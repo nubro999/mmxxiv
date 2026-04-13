@@ -20,7 +20,7 @@ const focuses = [
 
 export default function KeyFocus() {
   return (
-    <section className="bg-cream py-24 text-black">
+    <section className="bg-white py-24 text-black">
       <div className="mx-auto max-w-7xl px-8">
         <div className="mb-16 max-w-2xl">
           <span className="mb-4 block text-[0.6875rem] font-bold uppercase tracking-[0.3em] text-silver">
