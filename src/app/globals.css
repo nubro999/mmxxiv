@@ -4,11 +4,14 @@
   --font-sans: var(--font-inter);
   --font-serif: var(--font-dm-serif);
 
-  /* 4-color palette */
-  --color-navy: #282846;
-  --color-teal: #007580;
-  --color-gold: #FED049;
-  --color-sage: #D8EBE4;
+  /* Chanel-inspired luxury palette */
+  --color-black: #000000;
+  --color-charcoal: #111111;
+  --color-ash: #f0f0f0;
+  --color-white: #ffffff;
+  --color-silver: #c0c0c0;
+  --color-cream: #fffdd0;
+  --color-rose: #ffc0cb;
 }
 
 @layer base {
