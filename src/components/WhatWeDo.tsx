@@ -1,86 +1,106 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import {
+  Target,
+  Coins,
+  ArrowLeftRight,
+  TrendingUp,
+  Megaphone,
+  ShieldCheck,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const services = [
+const services: { icon: LucideIcon; label: string; desc: string }[] = [
   {
-    asset: "/assets/MMIXX_ASSET_1.svg",
-    title: "Overall Listing Strategy",
+    icon: Target,
+    label: "Listing Strategy",
     desc: "Tailored exchange listing strategies to achieve your long-term goals in the most cost-effective way.",
   },
   {
-    asset: "/assets/MMIXX_ASSET_2.svg",
-    title: "Tokenomics & Allocation",
+    icon: Coins,
+    label: "Tokenomics",
     desc: "Token design, economies, distribution strategies, and go-to-market structuring.",
   },
   {
-    asset: "/assets/MMIXX_ASSET_3.svg",
-    title: "CEX & DEX Listing",
+    icon: ArrowLeftRight,
+    label: "CEX & DEX",
     desc: "Direct exchange introductions with favorable commercial terms and higher approval probability.",
   },
   {
-    asset: "/assets/MMIXX_ASSET_4.svg",
-    title: "VC & Market Makers",
+    icon: TrendingUp,
+    label: "VC & MM",
     desc: "Connections with leading investors, market makers, and partners essential for a successful TGE.",
   },
   {
-    asset: "/assets/MMIXX_ASSET_5.svg",
-    title: "Marketing & Community",
+    icon: Megaphone,
+    label: "Marketing",
     desc: "Community building, user acquisition campaigns, and strategic marketing for sustained growth.",
   },
   {
-    asset: "/assets/MMIXX_ASSET_6.svg",
-    title: "Post-Launch Management",
+    icon: ShieldCheck,
+    label: "Post-Launch",
     desc: "Lifetime support including secondary listings, derivatives, and trading strategy optimization.",
   },
 ];
 
 export default function WhatWeDo() {
   return (
-    <section id="services" className="bg-cream py-24">
-      <div className="mx-auto max-w-7xl px-8">
-        <div className="mb-16 max-w-2xl">
-          <span className="mb-4 block text-[0.6875rem] font-bold uppercase tracking-[0.3em] text-silver">
-            What We Do
-          </span>
-          <h2 className="font-[family-name:var(--font-dm-serif)] text-4xl tracking-tight text-black">
+    <section id="services" className="bg-white py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-20 max-w-4xl"
+        >
+          <div className="mb-2 h-3 w-3 rounded-full bg-rose" />
+          <h2 className="mb-6 font-[family-name:var(--font-dm-serif)] text-4xl tracking-tight text-black md:text-5xl">
             End-to-end token listing & launch.
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-black/50">
+          <p className="text-lg leading-relaxed text-black/50 md:text-xl">
             From tokenomics design to post-launch management, we cover every
-            stage of your exchange listing journey.
+            stage of your exchange listing journey — tailored strategies,
+            direct exchange introductions, and lifetime support.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group border border-silver/30 bg-white p-10 transition-all duration-300 hover:border-rose"
-            >
-              <div className="mb-8 flex h-28 items-center justify-center">
-                <Image
-                  src={service.asset}
-                  alt={service.title}
-                  width={160}
-                  height={120}
-                  className="h-28 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <h3 className="mb-3 text-lg font-bold text-black">
-                {service.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-black/50">
-                {service.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-wrap justify-center gap-10 md:gap-14"
+        >
+          {services.map((service, i) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={service.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: 0.15 + i * 0.06 }}
+                className="group relative flex flex-col items-center gap-4"
+              >
+                <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-rose/10 transition-colors duration-300 group-hover:bg-rose/20 md:h-24 md:w-24">
+                  <Icon className="h-9 w-9 text-black/70 md:h-10 md:w-10" strokeWidth={1.4} />
+                </div>
+                <span className="rounded-full bg-black px-5 py-1.5 text-sm font-semibold text-white">
+                  {service.label}
+                </span>
+
+                {/* Hover tooltip */}
+                <div className="pointer-events-none absolute top-full z-10 mt-3 w-64 translate-y-2 rounded-xl bg-black p-5 opacity-0 shadow-lg transition-all duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 bg-black" />
+                  <h4 className="mb-1.5 text-sm font-semibold text-white">{service.label}</h4>
+                  <p className="text-sm leading-relaxed text-white/60">{service.desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );

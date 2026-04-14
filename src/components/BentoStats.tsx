@@ -1,57 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import CountUp from "@/components/CountUp";
 
 const stats = [
-  { value: "40+", label: "Exchange Partnerships" },
-  { value: "$2.4B", label: "Liquidity Managed" },
-  { value: "99.8%", label: "Protocol Uptime" },
+  { value: 40, prefix: "", suffix: "+", label: "Exchange Partnerships" },
+  { value: 2.4, prefix: "$", suffix: "B", label: "Liquidity Managed" },
+  { value: 99.8, prefix: "", suffix: "%", label: "Protocol Uptime" },
 ];
 
 export default function BentoStats() {
   return (
-    <section className="bg-black py-24">
-      <div className="mx-auto max-w-7xl px-8">
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="border border-white/10 bg-white/5 p-10 text-center"
-                >
-                  <span className="mb-2 block font-[family-name:var(--font-dm-serif)] text-5xl text-rose">
-                    {stat.value}
-                  </span>
-                  <p className="text-sm font-bold uppercase tracking-widest text-white/40">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              ))}
+    <section className="bg-ash/50 py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-0"
+        >
+          {stats.map((stat, i) => (
+            <div
+              key={stat.label}
+              className={`flex flex-col items-center gap-2 px-16 ${
+                i < stats.length - 1
+                  ? "border-b border-black/8 pb-10 md:border-b-0 md:border-r md:pb-0"
+                  : ""
+              }`}
+            >
+              <span className="block font-[family-name:var(--font-dm-serif)] text-6xl text-black md:text-7xl">
+                {stat.prefix}
+                <CountUp to={stat.value} from={0} duration={0.6} separator="," />
+                {stat.suffix}
+              </span>
+              <p className="text-sm font-medium uppercase tracking-widest text-black/30">
+                {stat.label}
+              </p>
             </div>
-          </div>
-
-          <motion.div
-            className="flex justify-center lg:col-span-5"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Image
-              src="/assets/MMIXX_ASSET_4.svg"
-              alt="MMXXIV Data Architecture"
-              width={400}
-              height={428}
-              className="w-full max-w-xs h-auto"
-            />
-          </motion.div>
-        </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

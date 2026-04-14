@@ -7,22 +7,20 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between px-12 py-16 md:flex-row">
-        <div className="mb-8 text-center md:mb-0 md:text-left">
-          <span className="mb-2 block font-[family-name:var(--font-dm-serif)] text-lg text-white">
+    <footer className="bg-black">
+      <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between px-6 py-10 md:flex-row">
+        <div className="mb-6 text-center md:mb-0 md:text-left">
+          <span className="mb-1 block font-[family-name:var(--font-dm-serif)] text-lg text-white">
             MMXXIV
           </span>
-          <p className="text-[0.6875rem] uppercase tracking-[0.05em] text-white/30">
-            &copy; MMXXIV. ALL RIGHTS RESERVED.
-          </p>
+          <p className="text-xs text-white/30">&copy; MMXXIV. All rights reserved.</p>
         </div>
-        <div className="flex flex-wrap justify-center gap-8 text-[0.6875rem] uppercase tracking-[0.05em]">
+        <div className="flex flex-wrap justify-center gap-6 text-xs">
           {footerLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-white/30 transition-colors hover:text-rose"
+              className="text-white/30 transition-colors hover:text-white/60"
             >
               {link.label}
             </a>

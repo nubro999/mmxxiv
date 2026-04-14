@@ -6,7 +6,7 @@ import Image from "next/image";
 const focuses = [
   {
     keyword: "Advise",
-    desc: "We advise founders on everything from token design & economies, token launches & go-to-market strategy, structuring, technology, and fundraising.",
+    desc: "We advise founders on token design & economies, token launches & go-to-market strategy, structuring, technology, and fundraising — catapulting projects to the next level.",
   },
   {
     keyword: "Support",
@@ -20,55 +20,65 @@ const focuses = [
 
 export default function KeyFocus() {
   return (
-    <section className="bg-white py-24 text-black">
-      <div className="mx-auto max-w-7xl px-8">
-        <div className="mb-16 max-w-2xl">
-          <span className="mb-4 block text-[0.6875rem] font-bold uppercase tracking-[0.3em] text-silver">
-            3 Key Focus
-          </span>
-          <h2 className="font-[family-name:var(--font-dm-serif)] text-4xl tracking-tight text-black">
-            How we deliver results.
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+    <section className="bg-white py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="grid grid-cols-1 items-center gap-20 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="flex justify-center"
           >
             <Image
-              src="/assets/MMIXX_ASSET_2.svg"
-              alt="MMXXIV Ecosystem Architecture"
-              width={500}
-              height={490}
-              className="w-full max-w-md h-auto"
+              src="/assets/MMIXX_ASSET_4.svg"
+              alt="MMXXIV Analysis"
+              width={420}
+              height={449}
+              className="w-full max-w-[340px] h-auto"
             />
           </motion.div>
 
-          <div className="space-y-8">
-            {focuses.map((focus, i) => (
-              <motion.div
-                key={focus.keyword}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="border-l-2 border-rose pl-8"
-              >
-                <span className="mb-1 block font-[family-name:var(--font-dm-serif)] text-4xl text-silver/30">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mb-3 text-xl font-black text-black">
-                  {focus.keyword}
-                </h3>
-                <p className="text-sm leading-relaxed text-black/50">
-                  {focus.desc}
-                </p>
-              </motion.div>
-            ))}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-10"
+            >
+              <span className="mb-3 block text-sm font-semibold uppercase tracking-[0.2em] text-rose">
+                3 Key Focus
+              </span>
+              <h2 className="font-[family-name:var(--font-dm-serif)] text-4xl tracking-tight text-black md:text-5xl">
+                How we deliver results.
+              </h2>
+            </motion.div>
+
+            <div className="space-y-4">
+              {focuses.map((focus, i) => (
+                <motion.div
+                  key={focus.keyword}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex items-start gap-5 rounded-2xl border border-black/[0.04] bg-ash/60 p-7 transition-colors hover:bg-ash"
+                >
+                  <span className="mt-1 block shrink-0 font-[family-name:var(--font-dm-serif)] text-3xl leading-none text-rose/40">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="mb-2 text-lg font-semibold text-black">
+                      {focus.keyword}
+                    </h3>
+                    <p className="text-base leading-relaxed text-black/45">
+                      {focus.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

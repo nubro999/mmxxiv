@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Services", href: "#services", active: true },
+  { label: "Services", href: "#services" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
 ];
@@ -13,28 +13,28 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-6">
-        <div className="flex items-center gap-4">
-          <span className="font-[family-name:var(--font-dm-serif)] text-xl text-white">
-            MMXXIV
-          </span>
-        </div>
+    <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-black/70 backdrop-blur-xl">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-8 py-4">
+        <span className="font-[family-name:var(--font-dm-serif)] text-xl text-white">
+          MMXXIV
+        </span>
 
-        <nav className="hidden items-center space-x-10 font-medium tracking-tight md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className={
-                link.active
-                  ? "border-b border-rose pb-1 font-bold text-white transition-colors"
-                  : "text-white/40 transition-colors hover:text-white"
-              }
+              className="text-sm font-medium text-white/50 transition-colors hover:text-white"
             >
               {link.label}
             </a>
           ))}
+          <a
+            href="#contact"
+            className="rounded-full bg-rose px-5 py-2 text-sm font-semibold text-black transition-colors hover:bg-rose/85"
+          >
+            Get Started
+          </a>
         </nav>
 
         <button
@@ -58,14 +58,14 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden border-t border-white/10 md:hidden"
+            className="overflow-hidden border-t border-white/5 bg-black/90 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col gap-4 px-8 py-6">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="font-medium text-white/40 transition-colors hover:text-white"
+                  className="text-sm font-medium text-white/50 transition-colors hover:text-white"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
