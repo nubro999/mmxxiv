@@ -77,7 +77,7 @@ export default function WhyUs() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-20px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className={`flex w-[calc((100%-3rem)/3.3)] min-w-[260px] shrink-0 flex-col justify-between rounded-2xl p-7 md:p-8 ${
+                className={`flex w-[calc((100%-3rem)/3.3)] min-w-[260px] shrink-0 flex-col justify-between rounded p-7 md:p-8 ${
                   isFirst
                     ? "bg-black text-white"
                     : "border border-black/[0.04] bg-ash/60 text-black"
@@ -85,7 +85,7 @@ export default function WhyUs() {
                 style={{ aspectRatio: "1 / 1.05" }}
               >
                 <div>
-                  <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-xl ${isFirst ? "bg-rose/25" : "bg-rose/15"}`}>
+                  <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded ${isFirst ? "bg-rose/25" : "bg-rose/15"}`}>
                     <Icon className={`h-5 w-5 ${isFirst ? "text-rose" : "text-black/60"}`} strokeWidth={1.8} />
                   </div>
                   <h3 className={`text-xl font-semibold leading-snug ${isFirst ? "text-white" : "text-black"}`}>

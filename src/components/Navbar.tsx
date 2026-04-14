@@ -31,7 +31,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
-            className="rounded-full bg-rose px-5 py-2 text-sm font-semibold text-black transition-colors hover:bg-rose/85"
+            className="rounded bg-rose px-5 py-2 text-sm font-semibold text-black transition-colors hover:bg-rose/85"
           >
             Get Started
           </a>

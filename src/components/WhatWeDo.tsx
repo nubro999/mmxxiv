@@ -84,15 +84,15 @@ export default function WhatWeDo() {
                 transition={{ duration: 0.35, delay: 0.15 + i * 0.06 }}
                 className="group relative flex flex-col items-center gap-4"
               >
-                <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-rose/10 transition-colors duration-300 group-hover:bg-rose/20 md:h-24 md:w-24">
+                <div className="flex h-20 w-20 items-center justify-center rounded bg-rose/10 transition-colors duration-300 group-hover:bg-rose/20 md:h-24 md:w-24">
                   <Icon className="h-9 w-9 text-black/70 md:h-10 md:w-10" strokeWidth={1.4} />
                 </div>
-                <span className="rounded-full bg-black px-5 py-1.5 text-sm font-semibold text-white">
+                <span className="rounded bg-black px-5 py-1.5 text-sm font-semibold text-white">
                   {service.label}
                 </span>
 
                 {/* Hover tooltip */}
-                <div className="pointer-events-none absolute top-full z-10 mt-3 w-64 translate-y-2 rounded-xl bg-black p-5 opacity-0 shadow-lg transition-all duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="pointer-events-none absolute top-full z-10 mt-3 w-64 translate-y-2 rounded bg-black p-5 opacity-0 shadow-lg transition-all duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
                   <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 bg-black" />
                   <h4 className="mb-1.5 text-sm font-semibold text-white">{service.label}</h4>
                   <p className="text-sm leading-relaxed text-white/60">{service.desc}</p>

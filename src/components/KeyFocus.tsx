@@ -63,7 +63,7 @@ export default function KeyFocus() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex items-start gap-5 rounded-2xl border border-black/[0.04] bg-ash/60 p-7 transition-colors hover:bg-ash"
+                  className="flex items-start gap-5 rounded border border-black/[0.04] bg-ash/60 p-7 transition-colors hover:bg-ash"
                 >
                   <span className="mt-1 block shrink-0 font-[family-name:var(--font-dm-serif)] text-3xl leading-none text-rose/40">
                     {String(i + 1).padStart(2, "0")}

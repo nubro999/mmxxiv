@@ -42,28 +42,28 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl border border-black/[0.04] bg-ash/60 p-8 md:p-10"
+            className="rounded border border-black/[0.04] bg-ash/60 p-8 md:p-10"
           >
             <form className="space-y-5">
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                 <div className="space-y-2">
                   <label className="block text-sm font-semibold text-black/40" htmlFor="name">Name</label>
-                  <input className="w-full rounded-xl border border-black/8 bg-white px-4 py-4 text-base text-black placeholder-black/25 transition-colors focus:border-black/20 focus:outline-none" id="name" placeholder="Full Name" type="text" />
+                  <input className="w-full rounded border border-black/8 bg-white px-4 py-4 text-base text-black placeholder-black/25 transition-colors focus:border-black/20 focus:outline-none" id="name" placeholder="Full Name" type="text" />
                 </div>
                 <div className="space-y-2">
                   <label className="block text-sm font-semibold text-black/40" htmlFor="email">Email</label>
-                  <input className="w-full rounded-xl border border-black/8 bg-white px-4 py-4 text-base text-black placeholder-black/25 transition-colors focus:border-black/20 focus:outline-none" id="email" placeholder="Email Address" type="email" />
+                  <input className="w-full rounded border border-black/8 bg-white px-4 py-4 text-base text-black placeholder-black/25 transition-colors focus:border-black/20 focus:outline-none" id="email" placeholder="Email Address" type="email" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="block text-sm font-semibold text-black/40" htmlFor="message">Message</label>
-                <textarea className="min-h-[150px] w-full rounded-xl border border-black/8 bg-white px-4 py-4 text-base text-black placeholder-black/25 transition-colors focus:border-black/20 focus:outline-none" id="message" placeholder="Tell us about your project..." />
+                <textarea className="min-h-[150px] w-full rounded border border-black/8 bg-white px-4 py-4 text-base text-black placeholder-black/25 transition-colors focus:border-black/20 focus:outline-none" id="message" placeholder="Tell us about your project..." />
               </div>
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full rounded-full bg-black py-4 text-base font-semibold text-white transition-colors hover:bg-black/85"
+                className="w-full rounded bg-black py-4 text-base font-semibold text-white transition-colors hover:bg-black/85"
               >
                 Send Message
               </motion.button>

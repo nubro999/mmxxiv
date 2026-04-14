@@ -12,7 +12,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <span className="mb-8 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.15em] text-rose">
+          <span className="mb-8 inline-block rounded border border-white/10 bg-white/5 px-4 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.15em] text-rose">
             Your Trusted Web3.0 Ecosystem Partner
           </span>
 
@@ -33,7 +33,7 @@ export default function Hero() {
               href="#contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
-              className="rounded-full bg-rose px-7 py-3.5 text-sm font-bold text-black transition-colors hover:bg-rose/85"
+              className="rounded bg-rose px-7 py-3.5 text-sm font-bold text-black transition-colors hover:bg-rose/85"
             >
               Start Assessment
             </motion.a>
@@ -41,7 +41,7 @@ export default function Hero() {
               href="#services"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
-              className="rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/30 hover:bg-white/5"
+              className="rounded border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/30 hover:bg-white/5"
             >
               View Ecosystem
             </motion.a>

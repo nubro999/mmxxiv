@@ -66,7 +66,7 @@ export default function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="rounded-2xl border border-white/8 bg-white/[0.04] p-8"
+              className="rounded border border-white/8 bg-white/[0.04] p-8"
             >
               <span className="mb-5 block text-sm font-semibold uppercase tracking-[0.15em] text-rose">
                 Primary Listing Management
@@ -86,7 +86,7 @@ export default function HowWeWork() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.08 }}
-              className="rounded-2xl border border-white/8 bg-white/[0.04] p-8"
+              className="rounded border border-white/8 bg-white/[0.04] p-8"
             >
               <span className="mb-5 block text-sm font-semibold uppercase tracking-[0.15em] text-white/35">
                 Post-Listing Management
