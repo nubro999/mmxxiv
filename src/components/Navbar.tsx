@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -18,13 +18,25 @@ function scrollTo(href: string) {
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hovered, setHovered] = useState<number | null>(null);
+  const [showLogo, setShowLogo] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowLogo(window.scrollY < window.innerHeight * 0.8);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
       {/* Top bar — logo centered */}
       <header className="fixed top-0 z-50 w-full">
         <div className="flex w-full items-center justify-center px-6 py-5">
-          <a href="#">
+          <a
+            href="#"
+            className={`transition-opacity duration-500 ${showLogo ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          >
             <Image
               src="/assets/logo-signature-white.png"
               alt="MMXXIV"
