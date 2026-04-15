@@ -2,19 +2,12 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Target,
-  Coins,
-  ArrowLeftRight,
-  Handshake,
-  Megaphone,
-  Rocket,
-} from "lucide-react";
+import Image from "next/image";
 
 const services = [
   {
     label: "Listing Strategy",
-    icon: Target,
+    icon: "/assets/icon-19.png",
     desc: "Tailored exchange listing strategies to achieve your long-term goals in the most cost-effective way.",
     details: [
       "Market analysis and exchange selection",
@@ -25,7 +18,7 @@ const services = [
   },
   {
     label: "Tokenomics",
-    icon: Coins,
+    icon: "/assets/icon-21.png",
     desc: "Token design, economies, distribution strategies, and go-to-market structuring.",
     details: [
       "Token supply and distribution modeling",
@@ -36,7 +29,7 @@ const services = [
   },
   {
     label: "CEX & DEX",
-    icon: ArrowLeftRight,
+    icon: "/assets/icon-22.png",
     desc: "Direct exchange introductions with favorable commercial terms and higher approval probability.",
     details: [
       "Tier 1–3 exchange introductions",
@@ -47,7 +40,7 @@ const services = [
   },
   {
     label: "VC & MM",
-    icon: Handshake,
+    icon: "/assets/icon-23.png",
     desc: "Connections with leading investors, market makers, and partners essential for a successful TGE.",
     details: [
       "Investor matchmaking and warm intros",
@@ -58,7 +51,7 @@ const services = [
   },
   {
     label: "Marketing",
-    icon: Megaphone,
+    icon: "/assets/icon-31.png",
     desc: "Community building, user acquisition campaigns, and strategic marketing for sustained growth.",
     details: [
       "Community growth strategy",
@@ -69,7 +62,7 @@ const services = [
   },
   {
     label: "Post-Launch",
-    icon: Rocket,
+    icon: "/assets/icon-33.png",
     desc: "Lifetime support including secondary listings, derivatives, and trading strategy optimization.",
     details: [
       "Secondary exchange listings",
@@ -83,7 +76,6 @@ const services = [
 export default function WhatWeDo() {
   const [active, setActive] = useState(0);
   const current = services[active];
-  const Icon = current.icon;
 
   return (
     <section id="services" className="bg-white py-28">
@@ -107,7 +99,6 @@ export default function WhatWeDo() {
           {/* Left — Tab List */}
           <div className="flex flex-col gap-1 lg:w-[340px] lg:shrink-0">
             {services.map((service, i) => {
-              const TabIcon = service.icon;
               const isActive = i === active;
               return (
                 <motion.button
@@ -123,11 +114,12 @@ export default function WhatWeDo() {
                       : "text-black/70 hover:bg-ash hover:text-black"
                   }`}
                 >
-                  <TabIcon
-                    className={`h-5 w-5 shrink-0 ${
-                      isActive ? "text-rose" : "text-black/30 group-hover:text-black/50"
-                    }`}
-                    strokeWidth={1.6}
+                  <Image
+                    src={service.icon}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="h-7 w-7 shrink-0"
                   />
                   <span className="text-[0.9375rem] font-semibold">
                     {service.label}
@@ -148,7 +140,13 @@ export default function WhatWeDo() {
                 transition={{ duration: 0.25 }}
                 className="flex h-full flex-col justify-center"
               >
-                <Icon className="mb-6 h-9 w-9 text-rose" strokeWidth={1.4} />
+                <Image
+                  src={current.icon}
+                  alt=""
+                  width={80}
+                  height={80}
+                  className="mb-6 h-14 w-14"
+                />
                 <h3 className="mb-3 font-[family-name:var(--font-dm-serif)] text-3xl tracking-tight text-black">
                   {current.label}
                 </h3>
