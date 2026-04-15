@@ -1,167 +1,150 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const pillars = [
-  { label: "Tokenomics", abbr: "T" },
-  { label: "CEX", abbr: "C" },
-  { label: "Venture Capital", abbr: "V" },
-  { label: "Market Makers", abbr: "M" },
-  { label: "Marketing", abbr: "K" },
-];
+import { useState } from "react";
 
 const steps = [
   {
+    num: "01",
     title: "Goals & Objectives",
-    desc: "Define your long-term vision, target exchanges, and success criteria before anything else.",
-    active: true,
+    desc: "Define your long-term vision, target exchanges, and success criteria.",
   },
   {
-    title: "Overall Listing Strategy",
-    desc: "A tailored roadmap covering timeline, budget allocation, and exchange prioritization.",
-    active: false,
+    num: "02",
+    title: "Listing Strategy",
+    desc: "Tailored roadmap covering timeline, budget, and exchange prioritization.",
   },
   {
-    title: null, // pillars row
-    desc: null,
-    active: false,
+    num: "03",
+    title: "Core Pillars",
+    desc: "Tokenomics, CEX, VC, Market Makers, and Marketing — orchestrated in parallel.",
+    pillars: ["Tokenomics", "CEX", "VC", "MM", "Marketing"],
   },
   {
+    num: "04",
     title: "Token Launch & TGE",
-    desc: "Coordinated execution across all channels — exchange onboarding, liquidity, and community.",
-    active: false,
+    desc: "Coordinated execution — exchange onboarding, liquidity, and community.",
   },
   {
-    title: "Post Launch Management",
-    desc: "Lifetime support including secondary listings, derivatives, and trading optimization.",
-    active: false,
+    num: "05",
+    title: "Post Launch",
+    desc: "Lifetime support including secondary listings, derivatives, and optimization.",
   },
 ];
 
 export default function Framework() {
+  const [active, setActive] = useState<number | null>(null);
+
   return (
-    <section className="bg-ash/50 py-32">
-      <div className="mx-auto max-w-6xl px-6">
+    <section className="bg-black py-28">
+      <div className="mx-auto max-w-7xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-20 max-w-2xl"
+          className="mb-14"
         >
           <span className="mb-3 block text-sm font-semibold uppercase tracking-[0.2em] text-rose">
             Our Proven Framework
           </span>
-          <h2 className="font-[family-name:var(--font-dm-serif)] text-4xl tracking-tight text-black md:text-5xl">
+          <h2 className="font-[family-name:var(--font-dm-serif)] text-5xl tracking-tight text-white md:text-6xl">
             A systematic approach to token listing.
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-black/50">
-            Not a flat checklist — a strategic architecture built from years of
-            navigating exchange ecosystems.
-          </p>
         </motion.div>
 
-        {/* Timeline */}
-        <div className="mx-auto max-w-3xl">
+        {/* Horizontal accordion — desktop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="hidden md:flex gap-0 border-t border-white/10 min-h-[280px]"
+          onMouseLeave={() => setActive(null)}
+        >
           {steps.map((step, i) => {
-            const isPillars = step.title === null;
-
-            if (isPillars) {
-              return (
-                <motion.div
-                  key="pillars"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.15 }}
-                  className="relative flex"
-                >
-                  {/* Timeline spine */}
-                  <div className="flex w-12 shrink-0 flex-col items-center md:w-16">
-                    <div className="w-px flex-1 bg-black/10" />
-                  </div>
-
-                  {/* Pillars grid */}
-                  <div className="flex-1 pb-8 pt-2">
-                    <div className="grid grid-cols-5 gap-2">
-                      {pillars.map((p, pi) => (
-                        <motion.div
-                          key={p.label}
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.2 + pi * 0.05 }}
-                          className="group relative rounded bg-white p-3 text-center shadow-sm transition-colors hover:bg-black"
-                        >
-                          <div className="mb-1.5 h-[2px] w-full rounded bg-rose/40 transition-colors group-hover:bg-rose" />
-                          <p className="text-[0.6rem] font-semibold uppercase leading-tight tracking-wide text-black/50 transition-colors group-hover:text-white md:text-xs">
-                            {p.label}
-                          </p>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            }
+            const isActive = active === i;
+            const hasActive = active !== null;
 
             return (
               <motion.div
-                key={step.title}
-                initial={{ opacity: 0, x: -16 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="relative flex"
+                key={step.num}
+                onMouseEnter={() => setActive(i)}
+                animate={{
+                  flex: isActive ? 5 : hasActive ? 1 : 1,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className={`relative overflow-hidden border-r border-white/10 last:border-r-0 cursor-default py-8 transition-colors duration-300 ${
+                  isActive ? "bg-white/5" : ""
+                }`}
               >
-                {/* Timeline spine + node */}
-                <div className="flex w-12 shrink-0 flex-col items-center md:w-16">
-                  {i > 0 && <div className="w-px flex-1 bg-black/10" />}
-                  {i === 0 && <div className="flex-1" />}
-                  <div
-                    className={`relative z-10 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
-                      step.active
-                        ? "bg-rose shadow-[0_0_0_4px_rgba(255,192,203,0.25)]"
-                        : "border-2 border-black/15 bg-white"
-                    }`}
-                  >
-                    {step.active && (
-                      <div className="h-1.5 w-1.5 rounded-full bg-white" />
-                    )}
-                  </div>
-                  {i < steps.length - 1 && (
-                    <div className="w-px flex-1 bg-black/10" />
-                  )}
+                {/* Collapsed */}
+                <div
+                  className={`px-5 transition-opacity duration-200 ${
+                    isActive ? "opacity-0" : "opacity-100"
+                  }`}
+                >
+                  <span className="block font-[family-name:var(--font-dm-serif)] text-3xl text-white/40">
+                    {step.num}
+                  </span>
+                  <h3 className="mt-3 font-[family-name:var(--font-dm-serif)] text-xl text-white/80 leading-tight tracking-tight">
+                    {step.title}
+                  </h3>
                 </div>
 
-                {/* Content card */}
-                <div className="flex-1 pb-8 pt-0.5">
-                  <div
-                    className={`rounded p-6 transition-all duration-300 md:p-7 ${
-                      step.active
-                        ? "bg-black text-white shadow-lg"
-                        : "bg-white shadow-sm hover:shadow-md"
-                    }`}
-                  >
-                    <h3
-                      className={`mb-1.5 text-lg font-semibold ${
-                        step.active ? "text-white" : "text-black"
-                      }`}
-                    >
-                      {step.title}
-                    </h3>
-                    <p
-                      className={`text-base leading-relaxed ${
-                        step.active ? "text-white/55" : "text-black/45"
-                      }`}
-                    >
-                      {step.desc}
-                    </p>
+                {/* Expanded */}
+                <div
+                  className={`absolute inset-0 px-8 py-8 transition-opacity duration-200 ${
+                    isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+                  }`}
+                >
+                  <div className="flex items-baseline gap-4 mb-5">
+                    <span className="font-[family-name:var(--font-dm-serif)] text-4xl text-rose">
+                      {step.num}
+                    </span>
+                    <div className="h-px flex-1 bg-white/10" />
                   </div>
+                  <h3 className="text-2xl font-semibold text-white mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-base leading-relaxed text-white/80 max-w-md">
+                    {step.desc}
+                  </p>
+                  {step.pillars && (
+                    <div className="mt-5 flex flex-wrap gap-x-5 gap-y-1">
+                      {step.pillars.map((p) => (
+                        <span key={p} className="text-sm font-semibold uppercase tracking-wider text-rose">
+                          {p}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* Mobile */}
+        <div className="md:hidden border-t border-white/10">
+          {steps.map((step, i) => (
+            <motion.div
+              key={step.num}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.05 }}
+              className="flex gap-5 border-b border-white/10 py-6"
+            >
+              <span className="shrink-0 font-[family-name:var(--font-dm-serif)] text-2xl text-white/40">
+                {step.num}
+              </span>
+              <div>
+                <h3 className="font-[family-name:var(--font-dm-serif)] text-xl text-white/80 tracking-tight">{step.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-white/80">{step.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

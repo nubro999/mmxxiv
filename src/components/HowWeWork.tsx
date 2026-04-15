@@ -21,86 +21,89 @@ const taskForce = {
 
 export default function HowWeWork() {
   return (
-    <section id="process" className="bg-black py-32">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="process" className="bg-ash/50 py-28">
+      <div className="mx-auto max-w-7xl px-4">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-16 max-w-2xl"
+          className="mb-16"
         >
           <span className="mb-3 block text-sm font-semibold uppercase tracking-[0.2em] text-rose">
             How We Work
           </span>
-          <h2 className="font-[family-name:var(--font-dm-serif)] text-4xl tracking-tight text-white md:text-5xl">
+          <h2 className="font-[family-name:var(--font-dm-serif)] text-5xl tracking-tight text-black md:text-6xl">
             Token launch task force.
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-white/45">
+          <p className="mt-5 max-w-2xl text-xl leading-relaxed text-black">
             Advisory sits at the center — orchestrating your project team,
             exchanges, investors, market makers, and marketing into one
             unified strategy.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+        {/* 3-column: Primary | Post | Asset */}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr]">
+          {/* Primary */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex justify-center"
+            transition={{ duration: 0.4 }}
+          >
+            <span className="mb-6 block text-base font-bold uppercase tracking-[0.15em] text-rose">
+              Primary Listing
+            </span>
+            {taskForce.primary.map((item, i) => (
+              <div
+                key={item}
+                className="border-t border-black/10 py-3"
+              >
+                <span className="text-lg font-medium text-black">{item}</span>
+              </div>
+            ))}
+            <div className="border-t border-black/10" />
+          </motion.div>
+
+          {/* Post */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.08 }}
+          >
+            <span className="mb-6 block text-base font-bold uppercase tracking-[0.15em] text-black/70">
+              Post-Listing
+            </span>
+            {taskForce.post.map((item, i) => (
+              <div
+                key={item}
+                className="border-t border-black/10 py-3"
+              >
+                <span className="text-lg font-medium text-black/80">{item}</span>
+              </div>
+            ))}
+            <div className="border-t border-black/10" />
+          </motion.div>
+
+          {/* Asset — fixed, no sticky */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="hidden lg:flex items-start justify-center"
           >
             <Image
               src="/assets/MMIXX_ASSET_2.svg"
               alt="MMXXIV Token Architecture"
-              width={420}
-              height={411}
+              width={400}
+              height={390}
               className="w-full max-w-[340px] h-auto"
             />
           </motion.div>
-
-          <div className="space-y-5">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="rounded border border-white/8 bg-white/[0.04] p-8"
-            >
-              <span className="mb-5 block text-sm font-semibold uppercase tracking-[0.15em] text-rose">
-                Primary Listing Management
-              </span>
-              <ul className="space-y-3">
-                {taskForce.primary.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base text-white/55">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-rose" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.08 }}
-              className="rounded border border-white/8 bg-white/[0.04] p-8"
-            >
-              <span className="mb-5 block text-sm font-semibold uppercase tracking-[0.15em] text-white/35">
-                Post-Listing Management
-              </span>
-              <ul className="space-y-3">
-                {taskForce.post.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base text-white/35">
-                    <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/20" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
         </div>
       </div>
     </section>

@@ -1,106 +1,175 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Target,
   Coins,
   ArrowLeftRight,
-  TrendingUp,
+  Handshake,
   Megaphone,
-  ShieldCheck,
+  Rocket,
 } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
-const services: { icon: LucideIcon; label: string; desc: string }[] = [
+const services = [
   {
-    icon: Target,
     label: "Listing Strategy",
+    icon: Target,
     desc: "Tailored exchange listing strategies to achieve your long-term goals in the most cost-effective way.",
+    details: [
+      "Market analysis and exchange selection",
+      "Timeline and milestone planning",
+      "Budget optimization and cost structuring",
+      "Regulatory compliance assessment",
+    ],
   },
   {
-    icon: Coins,
     label: "Tokenomics",
+    icon: Coins,
     desc: "Token design, economies, distribution strategies, and go-to-market structuring.",
+    details: [
+      "Token supply and distribution modeling",
+      "Vesting schedule design",
+      "Incentive mechanism architecture",
+      "Go-to-market token strategy",
+    ],
   },
   {
-    icon: ArrowLeftRight,
     label: "CEX & DEX",
+    icon: ArrowLeftRight,
     desc: "Direct exchange introductions with favorable commercial terms and higher approval probability.",
+    details: [
+      "Tier 1–3 exchange introductions",
+      "Application preparation and review",
+      "Commercial term negotiation",
+      "DEX liquidity pool setup",
+    ],
   },
   {
-    icon: TrendingUp,
     label: "VC & MM",
+    icon: Handshake,
     desc: "Connections with leading investors, market makers, and partners essential for a successful TGE.",
+    details: [
+      "Investor matchmaking and warm intros",
+      "Market maker selection and onboarding",
+      "Deal structuring support",
+      "Partnership facilitation",
+    ],
   },
   {
-    icon: Megaphone,
     label: "Marketing",
+    icon: Megaphone,
     desc: "Community building, user acquisition campaigns, and strategic marketing for sustained growth.",
+    details: [
+      "Community growth strategy",
+      "KOL and influencer campaigns",
+      "Social media and content planning",
+      "Pre-launch hype and awareness",
+    ],
   },
   {
-    icon: ShieldCheck,
     label: "Post-Launch",
+    icon: Rocket,
     desc: "Lifetime support including secondary listings, derivatives, and trading strategy optimization.",
+    details: [
+      "Secondary exchange listings",
+      "Derivatives and futures listing",
+      "Trading volume optimization",
+      "Ongoing advisory and support",
+    ],
   },
 ];
 
 export default function WhatWeDo() {
+  const [active, setActive] = useState(0);
+  const current = services[active];
+  const Icon = current.icon;
+
   return (
-    <section id="services" className="bg-white py-32">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="services" className="bg-white py-28">
+      <div className="mx-auto max-w-7xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-20 max-w-4xl"
+          className="mb-16"
         >
-          <div className="mb-2 h-3 w-3 rounded-full bg-rose" />
-          <h2 className="mb-6 font-[family-name:var(--font-dm-serif)] text-4xl tracking-tight text-black md:text-5xl">
-            End-to-end token listing & launch.
+          <span className="mb-3 block text-sm font-semibold uppercase tracking-[0.2em] text-rose">
+            What We Do
+          </span>
+          <h2 className="font-[family-name:var(--font-dm-serif)] text-5xl tracking-tight text-black md:text-6xl">
+            Token Exchange Listings Service
           </h2>
-          <p className="text-lg leading-relaxed text-black/50 md:text-xl">
-            From tokenomics design to post-launch management, we cover every
-            stage of your exchange listing journey — tailored strategies,
-            direct exchange introductions, and lifetime support.
-          </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap justify-center gap-10 md:gap-14"
-        >
-          {services.map((service, i) => {
-            const Icon = service.icon;
-            return (
+        <div className="flex flex-col gap-12 lg:flex-row lg:gap-16">
+          {/* Left — Tab List */}
+          <div className="flex flex-col gap-1 lg:w-[340px] lg:shrink-0">
+            {services.map((service, i) => {
+              const TabIcon = service.icon;
+              const isActive = i === active;
+              return (
+                <motion.button
+                  key={service.label}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.04 }}
+                  onClick={() => setActive(i)}
+                  className={`group flex items-center gap-4 px-5 py-4 text-left transition-colors duration-200 ${
+                    isActive
+                      ? "bg-black text-white"
+                      : "text-black/70 hover:bg-ash hover:text-black"
+                  }`}
+                >
+                  <TabIcon
+                    className={`h-5 w-5 shrink-0 ${
+                      isActive ? "text-rose" : "text-black/30 group-hover:text-black/50"
+                    }`}
+                    strokeWidth={1.6}
+                  />
+                  <span className="text-[0.9375rem] font-semibold">
+                    {service.label}
+                  </span>
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* Right — Content Panel */}
+          <div className="relative min-h-[320px] flex-1 border-l border-black/10 pl-12 lg:pl-16">
+            <AnimatePresence mode="wait">
               <motion.div
-                key={service.label}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: 0.15 + i * 0.06 }}
-                className="group relative flex flex-col items-center gap-4"
+                key={active}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25 }}
+                className="flex h-full flex-col justify-center"
               >
-                <div className="flex h-20 w-20 items-center justify-center rounded bg-rose/10 transition-colors duration-300 group-hover:bg-rose/20 md:h-24 md:w-24">
-                  <Icon className="h-9 w-9 text-black/70 md:h-10 md:w-10" strokeWidth={1.4} />
-                </div>
-                <span className="rounded bg-black px-5 py-1.5 text-sm font-semibold text-white">
-                  {service.label}
-                </span>
-
-                {/* Hover tooltip */}
-                <div className="pointer-events-none absolute top-full z-10 mt-3 w-64 translate-y-2 rounded bg-black p-5 opacity-0 shadow-lg transition-all duration-300 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100">
-                  <div className="absolute -top-2 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 bg-black" />
-                  <h4 className="mb-1.5 text-sm font-semibold text-white">{service.label}</h4>
-                  <p className="text-sm leading-relaxed text-white/60">{service.desc}</p>
-                </div>
+                <Icon className="mb-6 h-9 w-9 text-rose" strokeWidth={1.4} />
+                <h3 className="mb-3 font-[family-name:var(--font-dm-serif)] text-3xl tracking-tight text-black">
+                  {current.label}
+                </h3>
+                <p className="mb-8 text-lg leading-relaxed text-black/60">
+                  {current.desc}
+                </p>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {current.details.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-[0.9375rem] text-black/70"
+                    >
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-rose" style={{ width: 6, height: 6 }} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
-            );
-          })}
-        </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </section>
   );

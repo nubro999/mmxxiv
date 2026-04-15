@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const footerLinks = [
   { label: "Privacy Policy", href: "#" },
   { label: "Terms of Service", href: "#" },
@@ -8,11 +10,17 @@ const footerLinks = [
 export default function Footer() {
   return (
     <footer className="bg-black">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between px-6 py-10 md:flex-row">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between px-4 py-10 md:flex-row">
         <div className="mb-6 text-center md:mb-0 md:text-left">
-          <span className="mb-1 block font-[family-name:var(--font-dm-serif)] text-lg text-white">
-            MMXXIV
-          </span>
+          <div className="mb-1">
+            <Image
+              src="/assets/logo-signature-white.png"
+              alt="MMXXIV"
+              width={600}
+              height={120}
+              className="h-7 w-auto"
+            />
+          </div>
           <p className="text-xs text-white/30">&copy; MMXXIV. All rights reserved.</p>
         </div>
         <div className="flex flex-wrap justify-center gap-6 text-xs">

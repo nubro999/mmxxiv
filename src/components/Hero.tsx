@@ -6,46 +6,23 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-screen w-full overflow-hidden bg-black">
       {/* Left: Content */}
-      <div className="relative z-10 flex w-full shrink-0 flex-col justify-center px-8 py-20 md:w-[48%] md:pl-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))] md:pr-16">
+      <div className="relative z-10 flex w-full shrink-0 flex-col justify-center px-4 py-20 md:w-[48%] md:pl-[max(1rem,calc((100vw-80rem)/2+1rem))] md:pr-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <span className="mb-8 inline-block rounded border border-white/10 bg-white/5 px-4 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.15em] text-rose">
-            Your Trusted Web3.0 Ecosystem Partner
-          </span>
-
           <h1 className="mb-6 font-[family-name:var(--font-dm-serif)] text-4xl leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Finding perfectly{" "}
-            <span className="italic text-rose">tailored</span> exchanges for
-            your asset.
+            Your Trusted Web3.0{" "}
+            <span className="italic text-rose">Ecosystem</span> Partner
           </h1>
 
-          <p className="mb-10 max-w-md text-base leading-relaxed text-white/45">
-            Navigate the fragmented Web3 landscape with surgical precision. We
-            engineer strategic gateways between institutional protocols and
-            emerging digital ecosystems.
+          <p className="mb-10 max-w-md text-lg leading-relaxed text-white/50">
+            Finding perfectly tailored exchanges for your asset.
+            We engineer strategic gateways between institutional
+            protocols and emerging digital ecosystems.
           </p>
 
-          <div className="flex flex-wrap gap-3">
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              className="rounded bg-rose px-7 py-3.5 text-sm font-bold text-black transition-colors hover:bg-rose/85"
-            >
-              Start Assessment
-            </motion.a>
-            <motion.a
-              href="#services"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              className="rounded border border-white/15 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/30 hover:bg-white/5"
-            >
-              View Ecosystem
-            </motion.a>
-          </div>
         </motion.div>
       </div>
 

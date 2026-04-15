@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import LogoTicker from "@/components/LogoTicker";
 import WhatWeDo from "@/components/WhatWeDo";
 import Framework from "@/components/Framework";
 import KeyFocus from "@/components/KeyFocus";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <LogoTicker />
         <WhatWeDo />
         <Framework />
         <KeyFocus />
