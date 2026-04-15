@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import CountUp from "@/components/CountUp";
 
 const stats = [
-  { value: 40, prefix: "", suffix: "+", label: "Exchange Partnerships" },
-  { value: 2.4, prefix: "$", suffix: "B", label: "Liquidity Managed" },
-  { value: 99.8, prefix: "", suffix: "%", label: "Protocol Uptime" },
+  { value: 80, prefix: "", suffix: "+", label: "Web3 Partners" },
+  { value: 100, prefix: "", suffix: "%", label: "Successful Listing Rate" },
+  { value: 500, prefix: "$", suffix: "M", label: "FDV Launched" },
 ];
 
 export default function BentoStats() {

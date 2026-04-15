@@ -140,16 +140,18 @@ export default function WhatWeDo() {
                 transition={{ duration: 0.25 }}
                 className="flex h-full flex-col justify-center"
               >
-                <Image
-                  src={current.icon}
-                  alt=""
-                  width={80}
-                  height={80}
-                  className="mb-6 h-14 w-14"
-                />
-                <h3 className="mb-3 font-[family-name:var(--font-dm-serif)] text-3xl tracking-tight text-black">
-                  {current.label}
-                </h3>
+                <div className="mb-5 flex items-center gap-4">
+                  <Image
+                    src={current.icon}
+                    alt=""
+                    width={80}
+                    height={80}
+                    className="h-12 w-12 shrink-0"
+                  />
+                  <h3 className="font-[family-name:var(--font-dm-serif)] text-3xl tracking-tight text-black">
+                    {current.label}
+                  </h3>
+                </div>
                 <p className="mb-8 text-lg leading-relaxed text-black/60">
                   {current.desc}
                 </p>
