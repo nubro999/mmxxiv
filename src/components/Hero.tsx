@@ -11,7 +11,7 @@ export default function Hero() {
       {/* Spline 3D — shifted right, scaled up */}
       <div className="pointer-events-none absolute inset-0 left-[15%] scale-[1.5] origin-center">
         <iframe
-          src="https://my.spline.design/coin-2SRxjomQ07v8QM3TDgiiAG2B/"
+          src="https://my.spline.design/coin-srnyRakDdmQ32v3epnPYHwSo/"
           className="h-full w-full border-0"
           allow="autoplay"
         />
