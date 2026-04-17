@@ -18,7 +18,7 @@ export default function Hero() {
       </div>
 
       {/* Gradient overlay — softer */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 flex min-h-screen items-center px-4 md:px-[max(2rem,calc((100vw-80rem)/2+2rem))]">
