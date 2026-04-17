@@ -8,10 +8,10 @@ export default function Hero() {
       {/* Background gradient — behind 3D asset */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black via-rose/20 to-rose/50" />
 
-      {/* Spline 3D — shifted right */}
-      <div className="pointer-events-none absolute inset-0 left-[15%]">
+      {/* Spline 3D — shifted right, scaled up */}
+      <div className="pointer-events-none absolute inset-0 left-[15%] scale-[1.5] origin-center">
         <iframe
-          src="https://my.spline.design/ribbonspherecopycopy-qS7jF64qCOEsQTd04rm9tc2w-18L/"
+          src="https://my.spline.design/coin-2SRxjomQ07v8QM3TDgiiAG2B/"
           className="h-full w-full border-0"
           allow="autoplay"
         />
