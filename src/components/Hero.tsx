@@ -5,17 +5,20 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-black">
-      {/* Spline 3D — full background */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* Background gradient — behind 3D asset */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black via-black to-rose/30" />
+
+      {/* Spline 3D — shifted right */}
+      <div className="pointer-events-none absolute inset-0 left-[15%]">
         <iframe
-          src="https://my.spline.design/tvatimedoor-SLhH6tcrqs2n6GObMGCsH4OG/"
+          src="https://my.spline.design/ribbonspherecopycopy-qS7jF64qCOEsQTd04rm9tc2w-18L/"
           className="h-full w-full border-0"
           allow="autoplay"
         />
       </div>
 
-      {/* Gradient overlay — left side readable */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
+      {/* Gradient overlay — softer */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 flex min-h-screen items-center px-4 md:px-[max(2rem,calc((100vw-80rem)/2+2rem))]">
