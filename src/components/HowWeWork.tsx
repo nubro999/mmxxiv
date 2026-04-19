@@ -94,13 +94,13 @@ export default function HowWeWork() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="hidden lg:flex items-start justify-center"
+            className="hidden lg:flex items-start justify-center lg:-mt-24"
           >
             <Image
-              src="/assets/MMIXX_ASSET_2.svg"
+              src="/assets/MMIXX_ASSET_4.svg"
               alt="MMXXIV Token Architecture"
-              width={400}
-              height={390}
+              width={267}
+              height={286}
               className="w-full max-w-[340px] h-auto"
             />
           </motion.div>

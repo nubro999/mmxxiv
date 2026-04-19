@@ -1,57 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 309.91 379.62">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: url(#linear-gradient-3);
-      }
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 309.91 379.62" fill="none">
+  <!-- Asset 5 — Liquidity: merging pools of rose + black circles (light bg) -->
 
-      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
-        stroke-width: 2px;
-      }
+  <!-- dominant rose mass (primary pool) -->
+  <circle cx="178" cy="118" r="96" fill="#ffc0cb"/>
 
-      .cls-1, .cls-2, .cls-3, .cls-5 {
-        stroke: #000;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-      }
+  <!-- top-right rose pool merging with dominant -->
+  <circle cx="262" cy="46" r="30" fill="#ffc0cb"/>
 
-      .cls-2 {
-        fill: url(#linear-gradient-2);
-      }
+  <!-- rose nucleus inside dominant (depth) -->
+  <circle cx="222" cy="160" r="16" fill="#000000"/>
 
-      .cls-4 {
-        fill: none;
-        stroke: silver;
-        stroke-dasharray: 12;
-        stroke-miterlimit: 10;
-      }
+  <!-- large black mass merging with dominant bottom-left -->
+  <circle cx="82" cy="228" r="64" fill="#000000"/>
 
-      .cls-5 {
-        fill: url(#linear-gradient);
-      }
-    </style>
-    <linearGradient id="linear-gradient" x1="5.77" y1="189.81" x2="308.91" y2="189.81" gradientUnits="userSpaceOnUse">
-      <stop offset=".28" stop-color="#f5b9c3"/>
-      <stop offset=".77" stop-color="#f3f1c6"/>
-    </linearGradient>
-    <linearGradient id="linear-gradient-2" x1="140.24" y1="179.57" x2="193.38" y2="250.42" gradientUnits="userSpaceOnUse">
-      <stop offset=".26" stop-color="#f5f1c5"/>
-      <stop offset="1" stop-color="#f3f1c6"/>
-    </linearGradient>
-    <linearGradient id="linear-gradient-3" x1="256.14" y1="29.24" x2="277.44" y2="57.64" xlink:href="#linear-gradient-2"/>
-  </defs>
-  <g id="Layer_3" data-name="Layer 3">
-    <g>
-      <g>
-        <path class="cls-4" d="M5.77,189.81C130.03,162.24,211.45,100.25,246.49,1"/>
-        <path class="cls-4" d="M246.49,378.62c-35.04-99.25-116.46-161.24-240.72-188.81"/>
-      </g>
-      <path class="cls-5" d="M308.91,1v377.62h-22.94c-8.29-17.94-17.55-34.42-27.71-49.51-11.39-16.9-23.92-32.06-37.52-45.59-23.77-23.64-50.83-42.3-80.76-56.55-48.47-23.1-72.28-34.63-134.21-37.16,61.93-2.53,85.74-14.06,134.21-37.15C202.32,122.97,252.16,74.19,285.97,1h22.94Z"/>
-      <circle cx="5.77" cy="189.81" r="5.77"/>
-      <rect class="cls-2" x="116.62" y="166.26" width="109.17" height="109.17" rx="54.59" ry="54.59"/>
-      <path class="cls-3" d="M275.68,170.88h0c-7.29-21.76,4.43-45.3,26.19-52.6h0c-21.76,7.29-45.3-4.43-52.6-26.19h0c7.29,21.76-4.43,45.3-26.19,52.6h0c21.76-7.29,45.3,4.43,52.6,26.19Z"/>
-      <rect class="cls-1" x="246.67" y="23.91" width="43.76" height="43.76" rx="21.88" ry="21.88"/>
-    </g>
-  </g>
+  <!-- black droplet bridging the two masses -->
+  <circle cx="150" cy="222" r="18" fill="#000000"/>
+
+  <!-- mid black pool bottom-right -->
+  <circle cx="238" cy="286" r="44" fill="#000000"/>
+
+  <!-- rose pool connecting bottom, merging with mid black -->
+  <circle cx="186" cy="310" r="28" fill="#ffc0cb"/>
+
+  <!-- small black inside large black (inner current) -->
+  <circle cx="104" cy="244" r="14" fill="#ffc0cb"/>
+
+  <!-- small rose accent mid-left (free particle) -->
+  <circle cx="46" cy="118" r="14" fill="#ffc0cb"/>
+
+  <!-- tiny black accent top-center -->
+  <circle cx="108" cy="44" r="8" fill="#000000"/>
+
+  <!-- tiny rose bottom-right corner -->
+  <circle cx="296" cy="348" r="10" fill="#ffc0cb"/>
+
+  <!-- tiny black bottom-left -->
+  <circle cx="34" cy="346" r="7" fill="#000000"/>
+
+  <!-- mid rose droplet left -->
+  <circle cx="70" cy="336" r="18" fill="#ffc0cb"/>
 </svg>

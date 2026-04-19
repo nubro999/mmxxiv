@@ -31,14 +31,14 @@ const strengths = [
 
 export default function WhyUs() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-cream py-12">
       <div className="mx-auto max-w-7xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-10"
+          className="mb-6"
         >
           <span className="mb-3 block text-sm font-semibold uppercase tracking-[0.2em] text-rose">
             Why MMXXIV
@@ -57,7 +57,7 @@ export default function WhyUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: i * 0.04 }}
-              className="group grid grid-cols-1 items-baseline gap-2 border-t border-black/10 py-3.5 md:grid-cols-[3rem_1fr_1.2fr] md:gap-6"
+              className="group grid grid-cols-1 items-baseline gap-2 border-t border-black/10 py-2.5 md:grid-cols-[3rem_1fr_1.2fr] md:gap-6"
             >
               <span className="hidden font-[family-name:var(--font-dm-serif)] text-2xl text-black/30 transition-colors duration-300 group-hover:text-rose md:block">
                 {String(i + 1).padStart(2, "0")}
