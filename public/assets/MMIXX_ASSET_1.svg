@@ -46,8 +46,9 @@
   <!-- thin concentric ring inside rose -->
   <circle cx="218" cy="132" r="60" stroke="#000000" stroke-opacity="0.25" stroke-width="0.8"/>
 
-  <!-- horizontal-only marker inside black vertical mass (white) -->
+  <!-- star-shaped crosshair inside black vertical mass (white) -->
   <line x1="58" y1="140" x2="84" y2="140" stroke="#ffffff" stroke-opacity="0.45" stroke-width="0.8"/>
+  <line x1="71" y1="127" x2="71" y2="153" stroke="#ffffff" stroke-opacity="0.45" stroke-width="0.8"/>
   <circle cx="71" cy="140" r="2.2" fill="#ffffff" fill-opacity="0.7"/>
 
   <!-- secondary white dots in black mass -->

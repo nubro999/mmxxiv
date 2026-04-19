@@ -58,8 +58,9 @@
   <circle cx="96" cy="142" r="58" stroke="#ffffff" stroke-opacity="0.25" stroke-width="0.8"/>
   <circle cx="96" cy="142" r="34" stroke="#ffffff" stroke-opacity="0.4" stroke-width="0.8"/>
 
-  <!-- horizontal-only marker inside black disc (white) -->
+  <!-- star-shaped crosshair inside black disc (white) -->
   <line x1="84" y1="142" x2="108" y2="142" stroke="#ffffff" stroke-opacity="0.6" stroke-width="0.8"/>
+  <line x1="96" y1="130" x2="96" y2="154" stroke="#ffffff" stroke-opacity="0.6" stroke-width="0.8"/>
   <circle cx="96" cy="142" r="2.5" fill="#ffffff" fill-opacity="0.8"/>
 
   <!-- dot cluster above ash backdrop -->
