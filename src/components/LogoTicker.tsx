@@ -15,11 +15,17 @@ const exchanges = [
   { name: "bitbank", logo: "/exchanges/bitbank.png", scale: 1 },
   { name: "Bitrue", logo: "/exchanges/bitrue.png", scale: 1 },
   { name: "MEXC Global", logo: "/exchanges/mexc.png", scale: 0.67 },
+  { name: "Coinbase", logo: "/exchanges/coinbase.png", scale: 2 },
+  { name: "Kraken", logo: "/exchanges/kraken.png", scale: 1.5 },
+  { name: "HTX", logo: "/exchanges/htx.png", scale: 1 },
+  { name: "Crypto.com", logo: "/exchanges/cryptocom.jpg", scale: 6 },
+  { name: "Upbit", logo: "/exchanges/upbit.jpg", scale: 1.5 },
+  { name: "BingX", logo: "/exchanges/bingx.png", scale: 1 },
 ];
 
 export default function LogoTicker() {
   return (
-    <section className="relative overflow-hidden border-b border-black/5 bg-white py-8">
+    <section className="relative overflow-hidden border-b border-black/5 bg-white py-4">
       {/* Left fade */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" />
       {/* Right fade */}
@@ -29,7 +35,7 @@ export default function LogoTicker() {
         {[0, 1].map((copy) => (
           <motion.div
             key={copy}
-            className="flex shrink-0 items-center gap-16"
+            className="flex shrink-0 items-center gap-20"
             animate={{ x: "-100%" }}
             transition={{
               x: {
@@ -43,15 +49,15 @@ export default function LogoTicker() {
             {exchanges.map((exchange) => (
               <div
                 key={`${copy}-${exchange.name}`}
-                className="shrink-0 px-4 opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                className="flex shrink-0 items-center justify-center opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
               >
                 <Image
                   src={exchange.logo}
                   alt={exchange.name}
-                  width={120}
-                  height={40}
-                  className="h-8 w-auto object-contain"
-                  style={{ transform: `scale(${exchange.scale})` }}
+                  width={240}
+                  height={80}
+                  className="w-auto max-h-16 object-contain"
+                  style={{ height: `${32 * exchange.scale}px` }}
                 />
               </div>
             ))}
