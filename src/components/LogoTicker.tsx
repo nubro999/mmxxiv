@@ -28,7 +28,7 @@ export default function LogoTicker() {
       {/* Right fade */}
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
 
-      <div className="animate-marquee flex shrink-0 items-center">
+      <div className="animate-marquee flex w-max shrink-0 items-center">
         {[0, 1].flatMap((copy) =>
           exchanges.map((exchange) => (
             <div
