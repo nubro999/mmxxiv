@@ -1,21 +1,53 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [showSpline, setShowSpline] = useState(false);
+
+  useEffect(() => {
+    const schedule =
+      typeof window !== "undefined" &&
+      "requestIdleCallback" in window
+        ? (cb: () => void) =>
+            (window as unknown as {
+              requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number;
+            }).requestIdleCallback(cb, { timeout: 1500 })
+        : (cb: () => void) => window.setTimeout(cb, 300);
+
+    const handle = schedule(() => setShowSpline(true));
+    return () => {
+      if (typeof window !== "undefined" && "cancelIdleCallback" in window) {
+        (window as unknown as { cancelIdleCallback: (h: number) => void }).cancelIdleCallback(
+          handle as number
+        );
+      } else {
+        clearTimeout(handle as number);
+      }
+    };
+  }, []);
+
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-black">
       {/* Background gradient — behind 3D asset */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black via-rose/20 to-rose/50" />
 
-      {/* Spline 3D — shifted right, scaled up */}
-      <div className="pointer-events-none absolute inset-0 left-[15%] scale-[1.5] origin-center">
-        <iframe
-          src="https://my.spline.design/coin-srnyRakDdmQ32v3epnPYHwSo/"
-          className="h-full w-full border-0"
-          allow="autoplay"
-        />
-      </div>
+      {/* Spline 3D — deferred mount until after first paint */}
+      {showSpline && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="pointer-events-none absolute inset-0 left-[15%] scale-[1.5] origin-center"
+        >
+          <iframe
+            src="https://my.spline.design/coin-srnyRakDdmQ32v3epnPYHwSo/"
+            className="h-full w-full border-0"
+            allow="autoplay"
+          />
+        </motion.div>
+      )}
 
       {/* Gradient overlay — softer */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
