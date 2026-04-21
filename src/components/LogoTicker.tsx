@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 const exchanges = [
@@ -31,38 +28,25 @@ export default function LogoTicker() {
       {/* Right fade */}
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" />
 
-      <div className="flex">
-        {[0, 1].map((copy) => (
-          <motion.div
-            key={copy}
-            className="flex shrink-0 items-center"
-            animate={{ x: "-100%" }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30,
-                ease: "linear",
-              },
-            }}
-          >
-            {exchanges.map((exchange) => (
-              <div
-                key={`${copy}-${exchange.name}`}
-                className="mr-24 flex shrink-0 items-center justify-center opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-              >
-                <Image
-                  src={exchange.logo}
-                  alt={exchange.name}
-                  width={600}
-                  height={64}
-                  className="w-auto max-h-16 object-contain"
-                  style={{ height: `${32 * exchange.scale}px` }}
-                />
-              </div>
-            ))}
-          </motion.div>
-        ))}
+      <div className="animate-marquee flex shrink-0 items-center">
+        {[0, 1].flatMap((copy) =>
+          exchanges.map((exchange) => (
+            <div
+              key={`${copy}-${exchange.name}`}
+              className="mr-24 flex shrink-0 items-center justify-center opacity-70 grayscale transition-[opacity,filter] duration-300 hover:opacity-100 hover:grayscale-0"
+            >
+              <Image
+                src={exchange.logo}
+                alt={exchange.name}
+                width={600}
+                height={64}
+                priority
+                className="w-auto max-h-16 object-contain"
+                style={{ height: `${32 * exchange.scale}px` }}
+              />
+            </div>
+          ))
+        )}
       </div>
     </section>
   );
