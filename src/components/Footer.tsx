@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 const footerLinks = [
+  { label: "maurice@byzentine.capital", href: "mailto:maurice@byzentine.capital" },
   { label: "Privacy Policy", href: "#" },
   { label: "Terms of Service", href: "#" },
   { label: "Security Audit", href: "#" },

@@ -3,7 +3,33 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const CONTACT_EMAIL = "maurice@byzentine.capital";
+
 export default function ContactSection() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = (data.get("name") as string) ?? "";
+    const email = (data.get("email") as string) ?? "";
+    const project = (data.get("project") as string) ?? "";
+    const telegram = (data.get("telegram") as string) ?? "";
+    const message = (data.get("message") as string) ?? "";
+
+    const subject = `Project Inquiry${project ? ` — ${project}` : ""}${name ? ` (${name})` : ""}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Project: ${project}`,
+      `Telegram: ${telegram}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n");
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <section id="contact" className="bg-white py-28">
       <div className="mx-auto max-w-7xl px-4">
@@ -54,12 +80,13 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="rounded-lg border border-black/10 bg-ash/50 p-8 md:p-10"
           >
-            <form className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <form className="grid grid-cols-1 gap-6 md:grid-cols-2" onSubmit={handleSubmit}>
               <div>
                 <label className="mb-2 block text-xs font-semibold uppercase tracking-wider text-black/60" htmlFor="name">Name</label>
                 <input
                   className="w-full border-b-2 border-black/10 bg-transparent pb-3 text-lg text-black placeholder-black/25 transition-colors focus:border-black focus:outline-none"
                   id="name"
+                  name="name"
                   placeholder="Full Name"
                   type="text"
                 />
@@ -69,6 +96,7 @@ export default function ContactSection() {
                 <input
                   className="w-full border-b-2 border-black/10 bg-transparent pb-3 text-lg text-black placeholder-black/25 transition-colors focus:border-black focus:outline-none"
                   id="email"
+                  name="email"
                   placeholder="Email Address"
                   type="email"
                 />
@@ -78,6 +106,7 @@ export default function ContactSection() {
                 <input
                   className="w-full border-b-2 border-black/10 bg-transparent pb-3 text-lg text-black placeholder-black/25 transition-colors focus:border-black focus:outline-none"
                   id="project"
+                  name="project"
                   placeholder="Project Name"
                   type="text"
                 />
@@ -87,6 +116,7 @@ export default function ContactSection() {
                 <input
                   className="w-full border-b-2 border-black/10 bg-transparent pb-3 text-lg text-black placeholder-black/25 transition-colors focus:border-black focus:outline-none"
                   id="telegram"
+                  name="telegram"
                   placeholder="@handle"
                   type="text"
                 />
@@ -96,6 +126,7 @@ export default function ContactSection() {
                 <textarea
                   className="min-h-[100px] w-full border-b-2 border-black/10 bg-transparent pb-3 text-lg text-black placeholder-black/25 transition-colors focus:border-black focus:outline-none"
                   id="message"
+                  name="message"
                   placeholder="Tell us about your project..."
                 />
               </div>
