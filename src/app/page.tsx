@@ -7,6 +7,7 @@ import KeyFocus from "@/components/KeyFocus";
 import HowWeWork from "@/components/HowWeWork";
 import WhyUs from "@/components/WhyUs";
 import BentoStats from "@/components/BentoStats";
+import MnaAdvisory from "@/components/MnaAdvisory";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -23,6 +24,7 @@ export default function Home() {
         <HowWeWork />
         <WhyUs />
         <BentoStats />
+        <MnaAdvisory />
         <ContactSection />
       </main>
       <Footer />
